@@ -7,3 +7,13 @@ before_install:
 
 script:
   - docker run twh0008/solid-adventure npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "solid-adventure"
+  env: "SolidAdventure-env"
+  bucket_name: "elasticbeanstalk-us-east-2-033480132389"
+  bucket_path: "solid-adventure"
+  on:
+    branch: master
