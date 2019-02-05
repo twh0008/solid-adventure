@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t twh0008/solid-adventure -f Dockerfile.dev .
+
+script:
+  - docker run twh0008/solid-adventure npm run test -- --coverage
